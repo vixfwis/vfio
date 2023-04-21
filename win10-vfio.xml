@@ -1,6 +1,6 @@
 <domain type='kvm'>
   <name>win10-vfio</name>
-  <uuid>f4338a73-0000-46b9-a744-11ef3f3a0322</uuid>
+  <uuid>e0f9e3f9-b4ea-4864-9e56-98eb456fcd0a</uuid>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
       <libosinfo:os id="http://microsoft.com/win/10"/>
@@ -22,9 +22,14 @@
     <emulatorpin cpuset='4-7'/>
     <iothreadpin iothread='1' cpuset='4-7'/>
   </cputune>
-  <os>
+  <os firmware='efi'>
     <type arch='x86_64' machine='pc-q35-7.2'>hvm</type>
-    <bootmenu enable='yes'/>
+    <firmware>
+      <feature enabled='no' name='enrolled-keys'/>
+      <feature enabled='no' name='secure-boot'/>
+    </firmware>
+    <loader readonly='yes' type='pflash'>/usr/share/edk2/x64/OVMF_CODE.fd</loader>
+    <nvram template='/usr/share/edk2/x64/OVMF_VARS.fd'>/var/lib/libvirt/qemu/nvram/win10-vfio_VARS.fd</nvram>
   </os>
   <features>
     <acpi/>
@@ -173,7 +178,6 @@
       <source>
         <address domain='0x0000' bus='0x09' slot='0x00' function='0x0'/>
       </source>
-      <rom file='/etc/libvirt/hooks/qemu.d/win10-vfio/rtx3080ti-after-post.rom'/>
       <address type='pci' domain='0x0000' bus='0x04' slot='0x00' function='0x0'/>
     </hostdev>
     <hostdev mode='subsystem' type='pci' managed='yes'>

@@ -6,8 +6,8 @@
       <libosinfo:os id="http://microsoft.com/win/10"/>
     </libosinfo:libosinfo>
   </metadata>
-  <memory unit='KiB'>16777216</memory>
-  <currentMemory unit='KiB'>16777216</currentMemory>
+  <memory unit='KiB'>20971520</memory>
+  <currentMemory unit='KiB'>20971520</currentMemory>
   <vcpu placement='static'>12</vcpu>
   <iothreads>1</iothreads>
   <cputune>

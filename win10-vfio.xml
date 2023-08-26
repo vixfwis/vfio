@@ -82,7 +82,7 @@
     </disk>
     <disk type='block' device='disk'>
       <driver name='qemu' type='raw' io='io_uring' discard='unmap'/>
-      <source dev='/dev/sdc'/>
+      <source dev='/dev/disk/by-id/ata-KINGSTON_SA400S37960G_50026B77844F876A'/>
       <target dev='vdc' bus='virtio'/>
       <address type='pci' domain='0x0000' bus='0x03' slot='0x00' function='0x0'/>
     </disk>
